@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+ul li {
+  margin: 0;
+  display: block;
+}
+
+ol {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
