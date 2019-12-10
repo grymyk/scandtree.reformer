@@ -9,22 +9,21 @@
     z-index: 1;
     overflow: hidden;
     margin: 60px 0 0;
-
-    ul {
-        //height: 100%;
-        display: block;
-        transition-duration: 500ms;
-        transform-origin: 50% 50%;
-
-        li {
-            //height: 10px;
-            display: block;
-            position: relative;
-            margin: 0 auto;
-            will-change: transform;
-        }
-    }
 }
+
+.boardlist {
+  //height: 100%;
+  transition-duration: 500ms;
+  transform-origin: 50% 50%;
+
+  li {
+    //height: 10px;
+    position: relative;
+    margin: 0 auto;
+    will-change: transform;
+  }
+}
+
 .prism_holder {
   height: 20px;
   position: relative;
@@ -40,42 +39,42 @@
   }
 }
 
-.branch {
-  display: block;
-  background: #F6BF4F;
-  /*border: 1px solid #000;*/
-  border-bottom: none;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
+.prism {
+  .side_view {
+    position: absolute;
+  }
 
-.side_view {
-  /*margin: 0 auto;*/
-  position: absolute;
-}
+  .branch {
+    background: #F6BF4F;
+    /*border: 1px solid #000;*/
+    border-bottom: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
 
-.prism .front {
-  background: rgb(11, 151, 196);
-}
+  .front {
+    background: #0b97c4;
+  }
 
-.prism .back {
-  background: #c45736;
-}
+  .back {
+    background: #c45736;
+  }
 
-.prism .right {
-  background: #c269c4;
-}
+  .right {
+    background: #c269c4;
+  }
 
-.prism .left {
-  background: #5854c4;
-}
+  .left {
+    background: #5854c4;
+  }
 
-.prism .top {
-  background: #3ec4be;
-}
+  .top {
+    background: #3ec4be;
+  }
 
-.prism .bottom {
-  background: #4fc426;
+  .bottom {
+    background: #4fc426;
+  }
 }
 
 .output {

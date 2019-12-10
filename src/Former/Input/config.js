@@ -1,41 +1,44 @@
 const data = [{
     label: {
-        htmlFor: "height_board",
+        htmlFor: "height",
         value: "h"
     },
     input: {
         min: "1",
         max: "40",
         step: "1",
-        id: "height_board",
+        id: "height",
+        title: "Height of Board",
         name: "height",
         type: "number",
         readonly: false
     }
 }, {
     label: {
-        htmlFor: "width_board",
+        htmlFor: "width",
         value: "w"
     },
     input: {
         min: "1",
         max: "40",
         step: "1",
-        id: "width_board",
+        id: "width",
+        title: "Width of Board",
         name: "width",
         type: "number",
         readonly: false
     }
 }, {
     label: {
-        htmlFor: "long_board",
+        htmlFor: "long",
         value: "l"
     },
     input: {
         min: "100",
         max: "100000",
         step: "100",
-        id: "long_board",
+        id: "long",
+        title: "Long of Board",
         name: "long",
         type: "number",
         readonly: false
@@ -50,6 +53,7 @@ const data = [{
         max: "3",
         step: "1",
         id: "trunk",
+        title: "Trunk of Tree",
         name: "trunk",
         type: "number",
         readonly: true,
@@ -65,6 +69,7 @@ const data = [{
         max: "37",
         step: "1",
         id: "branch",
+        title: "Branch of Tree",
         name: "branch",
         type: "number",
         readonly: true,
@@ -80,6 +85,7 @@ const data = [{
         max: "90",
         step: "1",
         id: "spread",
+        title: "Spread of Tree",
         name: "spread",
         type: "number",
         readonly: true,
