@@ -1,32 +1,32 @@
 import React from 'react'
 
-import treeHelper from './treeHelper'
+import Face from "./Face";
+import treeHelper from "./treeHelper";
 
-class Board extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const faces = ["front", "back", "right", "left", "top", "bottom"];
 
-    render() {
-        // let cssText = treeHelper.setBoardStyles(zIndex, width);
-        let cssText = {zIndex: 0, width: 30, height: 10};
+function Board(props) {
+    let cssText = props;
+    let { zIndex } = props;
 
-        return (
-            <li style={cssText}>
-                {treeHelper.getBoardTemplate(this.props)}
-            </li>
-        )
-    }
+    let options = treeHelper.getBoardTemplate(props);
+
+    const faceList = faces.map( (face, index) => {
+        let key = zIndex + index.toString();
+
+        return <Face key = {key}
+                     face = {face}
+                     options = {options}
+        />
+    });
+
+    return (
+        <li key = {zIndex} style = {cssText}>
+            <div className="prism_holder">
+                <ul className="prism">{faceList}</ul>
+            </div>
+        </li>
+    )
 }
 
 export default Board;
-
-/*
-boardElem: (zIndex, width) => {
-    let li = document.createElement('LI');
-
-    li.style.cssText = setBoardStyles(zIndex, width);
-    li.innerHTML = getBoardTemplate(width);
-
-    return li;
-}*/

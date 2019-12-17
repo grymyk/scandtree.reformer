@@ -1,11 +1,15 @@
 import React from 'react';
 
-import HeadBoard from './HeadBoard'
-import BodyBoard from './BodyBoard'
+import HeadBranch from './HeadBranch'
+import BodyBranch from './BodyBranch'
 
 class Tree extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            zIndex: 0
+        }
     }
 
     render() {
@@ -14,13 +18,14 @@ class Tree extends React.Component {
         return(
             <div id="tree_holder">
                 <ul className = "boardlist">
-                    <HeadBoard
+                    <HeadBranch
                         height = {height}
                         width = {width}
+                        zIndex = {this.state.zIndex}
                     />
-                    <BodyBoard
-                        data = {this.props}
-                    />
+                    {<BodyBranch
+                        {...this.props}
+                    />}
                 </ul>
             </div>
         )
