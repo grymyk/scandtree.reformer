@@ -16,7 +16,7 @@ class Former extends React.Component {
             height: 10,
             width: 30,
             long: 1000,
-            trunk: 1,
+            trunk: 2,
             branch: 7,
             spread: 36
         };

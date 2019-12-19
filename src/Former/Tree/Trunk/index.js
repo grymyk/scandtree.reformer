@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Face from "./Face";
-import treeHelper from "./treeHelper";
+import boardHelper from "./boardHelper";
 
 const faces = ["front", "back", "right", "left", "top", "bottom"];
 
@@ -9,7 +9,7 @@ function Board(props) {
     let cssText = props;
     let { zIndex } = props;
 
-    let options = treeHelper.getBoardTemplate(props);
+    let options = boardHelper.getBoardTemplate(props);
 
     const faceList = faces.map( (face, index) => {
         let key = zIndex + index.toString();

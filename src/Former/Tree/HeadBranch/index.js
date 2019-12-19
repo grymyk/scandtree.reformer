@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Board from '../Board'
+import Trunk from '../Trunk'
 
 function HeadBranch(props) {
      return (
         <>
-            <Board {...props} />
+            <Trunk {...props} />
         </>
     )
 }
