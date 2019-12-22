@@ -1,4 +1,21 @@
-const data = [{
+const data = [
+    /*{
+    label: {
+        htmlFor: "long",
+        value: "l"
+    },
+    input: {
+        min: "100",
+        max: "100000",
+        step: "100",
+        id: "long",
+        title: "Long of Board",
+        name: "long",
+        type: "number",
+        readonly: false
+    }
+},*/
+    {
     label: {
         htmlFor: "height",
         value: "h"
@@ -28,22 +45,8 @@ const data = [{
         type: "number",
         readonly: false
     }
-}, {
-    label: {
-        htmlFor: "long",
-        value: "l"
-    },
-    input: {
-        min: "100",
-        max: "100000",
-        step: "100",
-        id: "long",
-        title: "Long of Board",
-        name: "long",
-        type: "number",
-        readonly: false
-    }
-}, {
+},
+    {
     label: {
         htmlFor: "trunk",
         value: "t"

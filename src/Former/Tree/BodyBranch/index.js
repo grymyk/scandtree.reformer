@@ -10,8 +10,7 @@ const getListBoard = (props) => {
         width: trunkWidth,
         branch: size,
         trunk: trunkNum,
-        height,
-        spread
+        height
     } = props;
 
     const getWidthBranch = (index, curve, options) => {
@@ -21,21 +20,19 @@ const getListBoard = (props) => {
     let branchNum = twigNum + trunkNum;
     let len = branchNum * size;
 
-
     // refactoring
-    const twig = (index) => (index + twigNum) % branchNum === 0;
+    /*const twig = (index) => (index + twigNum) % branchNum === 0;
 
     const conditionGen = () => {
         const name = 'twig';
         return {};
-    };
+    };*/
 
     const condition = {
         firth: (index) => (index + twigNum + 1) % branchNum === 0,
         second: (index) => (index + twigNum) % branchNum === 0
     };
-
-    // refactoring ^
+    // refactoring _^_
 
     const isTwig = (index) => {
         let status = 0;
@@ -48,34 +45,25 @@ const getListBoard = (props) => {
     };
 
     const getIndexTwig = (index) => {
-        return ((index + twigNum + 1) / branchNum).toFixed(0);
+        return (index + twigNum + 1) / branchNum ^ 0;
     };
+
 
     const getWidth = (index) => {
         let width = trunkWidth;
-        let twigCounter = 0;
 
         if ( isTwig(index) ) {
-            // console.log(index);
-            console.log(getIndexTwig(index));
-
-            // return width + sprea
             let indexTwig = getIndexTwig(index);
-            let more = getWidthBranch(indexTwig, 'linear', props);
-            console.log(more);
-
-            return width + more;
+            return  getWidthBranch(indexTwig, 'linear', props);
         }
 
         return width
     };
 
-
-    console.log('len', len);
-
     let list = [];
+    let i = trunkNum - 1;
 
-    for (let i = 1; i <= len; i += 1) {
+    for ( i; i < len; i += 1) {
         let trunk = <Trunk
             width = {getWidth(i)}
 

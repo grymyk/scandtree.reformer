@@ -9,7 +9,7 @@ export default function InputItem(props) {
 
     return (
          <>
-            <label htmlFor={htmlFor}>{lableName}</label>
+            <label htmlFor={htmlFor}>{htmlFor}</label>
             <input
                 id = {name}
                 title = {title}

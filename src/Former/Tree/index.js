@@ -8,7 +8,7 @@ class Tree extends React.Component {
         super(props);
 
         this.state = {
-            zIndex: 0
+            zIndex: 1
         }
     }
 

@@ -10,7 +10,7 @@ const curves = {
         return  ba * Math.sqrt((a * a - x * x) * t);
     },
 
-    eggCurve: (index, options) => {
+    eggCurve: function(index, options) {
         const HALF_WIDTH = 2;
         const koef = 1.293;
 
@@ -33,7 +33,7 @@ const curves = {
         return (HALF_WIDTH + koef) * width0 - fulcrum / 2
     },
 
-    ellipse: (index, options) => {
+    ellipse: function(index, options) {
         let {branch, height, size} = options;
 
         let major = branch * size * height / 2;
@@ -62,39 +62,33 @@ const curves = {
         const degreeToRadian = (degree) => Math.PI / 180 * degree;
 
         if (0 < spread && spread < MAX_SPREAD) {
+            const HALF_WIDTH = 2;
+            let alpha = spread / HALF_WIDTH;
 
-            // const radian = (90 - spread / 2) * Math.PI / 180;
-            let angle = (90 - spread / 4);
+            alpha = degreeToRadian(alpha);
 
-            angle = degreeToRadian(angle);
-
-            return index * height / Math.tan(angle);
+            return alpha * index * height;
         }
 
         return 0;
     },
 
     linear: function(index, options) {
-        let {width, height, spread, branch} = options;
+        let {width, height, spread} = options;
 
         let delta = this.getDelta(index, spread, height);
 
-        const HALF_WIDTH = 2;
         const koef = 1.293;
 
-        return +((HALF_WIDTH * index * delta + width / branch) * koef).toFixed(0);
+        return (index * delta + width) * koef ^ 0;
     },
 
-    parabola: (index, options) => {
-        let {fulcrum, delta} = options;
+    parabola: function(index, options) {
+        let {width, height} = options;
 
-        const HALF_WIDTH = 2;
         const koef = 1.293;
 
-        let x = index + 1;
-        let y = fulcrum;
-
-        return fulcrum / 2 * Math.pow(x, 2) + fulcrum ;
+        return (width / height * Math.pow(index, 2) + width) * koef ^ 0;
     }
 };
 
