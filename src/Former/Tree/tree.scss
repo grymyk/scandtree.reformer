@@ -1,0 +1,71 @@
+.scandtree {
+  position: relative;
+  padding: 40px 0 0;
+}
+
+#tree_holder {
+  position: relative;
+  z-index: 0;
+  margin: 60px auto 0;
+
+  .boardlist  {
+    transition-duration: 500ms;
+    transform-origin: 50% 50%;
+
+    .board {
+      position: relative;
+      margin: 0 auto;
+      will-change: transform;
+    }
+  }
+}
+.prism_holder {
+  height: 20px;
+  position: relative;
+  perspective: 700px;
+  perspective-origin: -142% -400%;
+
+  .prism {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+  }
+}
+
+.branch {
+  border: 1px solid rgba(0, 0, 0, 0.42);
+  border-bottom: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.side_view {
+  position: absolute;
+}
+
+.prism {
+  .front {
+    background: #dbb969;
+  }
+
+  .back {
+    background: #c45736;
+  }
+
+  .right {
+    background: #f6bf4f;
+  }
+
+  .left {
+    background: #7d5c30;
+  }
+
+  .top {
+    background: #b7a05c;
+  }
+
+  .bottom {
+    background: #f6bf4f;
+  }
+}

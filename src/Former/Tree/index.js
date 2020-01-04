@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './tree.scss';
+
 import HeadBranch from './HeadBranch'
 import BodyBranch from './BodyBranch'
 
@@ -18,14 +20,18 @@ class Tree extends React.Component {
         return(
             <div id="tree_holder">
                 <ul className = "boardlist">
+                    {
                     <HeadBranch
                         height = {height}
                         width = {width}
                         zIndex = {this.state.zIndex}
                     />
-                    {<BodyBranch
-                        {...this.props}
-                    />}
+                    }
+                    {
+                        <BodyBranch
+                            {...this.props}
+                        />
+                    }
                 </ul>
             </div>
         )

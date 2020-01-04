@@ -1,9 +1,10 @@
 import React from 'react'
 import Item from "./Item";
+import ResetBtn from "./ResetBtn";
 
 import config from './config'
 
-import './style.scss'
+import './input.scss'
 
 export default class Input extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ export default class Input extends React.Component {
 
         this.state = {
             isOpen: true,
+            isReset: false
        };
     }
 
@@ -21,36 +23,43 @@ export default class Input extends React.Component {
     };
 
     render() {
-        let { onBntClick, onInputChange } = this.props;
+        let {
+            onBntClick,
+            onInputChange,
+            isReset,
+            onResetBnt
+        } = this.props;
 
         const fn = (data) => {
             let {label, input} = data;
             let {name} = input;
 
             return <Item
+                value = {this.props[name]}
                 label = {label}
                 input = {input}
                 key = {name}
 
                 onClick = {onBntClick}
                 onChange = {onInputChange}
-                value = {this.props[name]}
             />
         };
 
         const list = config.map(fn);
 
-        let cls = this.state.isOpen ? 'open' : null;
+        let clsParams = this.state.isOpen ? 'open' : null;
 
         return (
-            <div id="input_params" data-owner="admin" className={cls}>
-                <h4
-                    onClick = {this.handleHeadClick}
-                    data-action="toggle">
-                    Input
+            <div id="input_params" className={clsParams}>
+                <h4 onClick = {this.handleHeadClick} >
+                    Parameters
                 </h4>
-                <ul data-action="toggle">
+                <ul>
                     {list}
+                    <ResetBtn
+                        onClick = {onResetBnt}
+                        isReset = {isReset}
+                    />
                 </ul>
             </div>
         )

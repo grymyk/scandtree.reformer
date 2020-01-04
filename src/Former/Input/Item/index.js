@@ -7,7 +7,7 @@ export default function Item(props) {
     let {onClick, ...other} = props;
 
     return (
-        <li data-mode="board" className="mode">
+        <li>
             <InputItem
                 {...other}
             />

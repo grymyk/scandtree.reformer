@@ -21,7 +21,7 @@ function Board(props) {
     });
 
     return (
-        <li key = {zIndex} style = {cssText}>
+        <li className="board" key = {zIndex} style = {cssText}>
             <div className="prism_holder">
                 <ul className="prism">{faceList}</ul>
             </div>
