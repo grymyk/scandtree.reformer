@@ -37,7 +37,7 @@ const data = [
     },
     input: {
         min: "1",
-        max: "40",
+        max: "80",
         step: "1",
         id: "width",
         title: "Width of Board",
@@ -45,8 +45,23 @@ const data = [
         type: "number",
         readonly: false
     }
-},
-    {
+}, {
+    label: {
+        htmlFor: "twig",
+        value: "twig"
+    },
+    input: {
+        min: "1",
+        max: "1",
+        step: "1",
+        id: "twig",
+        title: "Twig of Tree",
+        name: "twig",
+        type: "number",
+        readonly: true,
+        className: "readonly"
+    }
+}, {
     label: {
         htmlFor: "trunk",
         value: "t"

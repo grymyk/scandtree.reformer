@@ -4,11 +4,10 @@ import Trunk from '../Trunk'
 import curves from './curves';
 
 const getListBoard = (props) => {
-    const twigNum = 2;
-
     let {
         width: trunkWidth,
         branch: size,
+        twig: twigNum,
         trunk: trunkNum,
         height
     } = props;
@@ -29,9 +28,10 @@ const getListBoard = (props) => {
     };*/
 
     const condition = {
-        firth: (index) => (index + twigNum + 1) % branchNum === 0,
-        second: (index) => (index + twigNum) % branchNum === 0
+        first: (index) => (index + twigNum + 1) % branchNum === 0,
+        // second: (index) => (index + twigNum) % branchNum === 0
     };
+
     // refactoring _^_
 
     const isTwig = (index) => {
@@ -50,12 +50,21 @@ const getListBoard = (props) => {
 
 
     const getWidth = (index) => {
+        // console.log('index', index)
         let width = trunkWidth;
 
         if ( isTwig(index) ) {
+            // console.log('tw index', index)
             let indexTwig = getIndexTwig(index);
-            return  getWidthBranch(indexTwig, 'linear', props);
+            // return getWidthBranch(indexTwig, 'linear', props);
+            // console.log( getWidthBranch(indexTwig, 'eggCurve', props) );
+            // return getWidthBranch(indexTwig, 'eggCurve', props);
+
+            console.log(getWidthBranch(indexTwig, 'circle', props))
+
+            return getWidthBranch(indexTwig, 'circle', props);
         }
+
 
         return width
     };

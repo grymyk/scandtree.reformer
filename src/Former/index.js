@@ -14,7 +14,8 @@ const default_data = {
     height: 10,
     width: 30,
     long: 1000,
-    trunk: 2,
+    twig: 1,
+    trunk: 1,
     branch: 7,
     spread: 36,
     isReset: false
