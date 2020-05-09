@@ -25,18 +25,17 @@ const curves = {
     circle: function(index, options) {
         // console.log(options)
 
-        let borders = 2
+        // let borders = 2
 
         let {
-            width: w0,
             branch,
             height: h0,
             trunk,
             twig
         } = options;
 
-        let top = 1;
-        let len = (trunk + twig) * branch + top;
+        // let top = 1;
+        let len = (trunk + twig) * branch;
         // console.log('len', len)
 
         let head = 0; // 0.29;

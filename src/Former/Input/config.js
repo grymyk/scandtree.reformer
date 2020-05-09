@@ -83,7 +83,7 @@ const data = [
         value: "b"
     },
     input: {
-        min: "5",
+        min: "4",
         max: "37",
         step: "1",
         id: "branch",

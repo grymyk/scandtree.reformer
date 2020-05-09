@@ -16,7 +16,7 @@ const default_data = {
     long: 1000,
     twig: 1,
     trunk: 1,
-    branch: 7,
+    branch: 12,
     spread: 36,
     isReset: false
 };
