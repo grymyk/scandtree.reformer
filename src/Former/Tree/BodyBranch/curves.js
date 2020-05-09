@@ -39,17 +39,24 @@ const curves = {
         let len = (trunk + twig) * branch + top;
         // console.log('len', len)
 
-        let radius = h0 * len / 2;
+        let head = 0; // 0.29;
+        let radius = h0 * len / 2 + head; // w0
+        // let radius = (w0 * w0) / (8 * head) + head / 2;
         // console.log('radius', radius)
 
         // console.log('index:', index)
-        let height = h0 * ( 2 * index - 0.5);
 
-        let rx = 3 * radius * height - 9 / 4 * Math.pow(height, 2);
+        // let height = h0 * ( 2 * index - head);
+        let height = h0 * ( head + 2 * index - 2);
+
+        //let rx = 3 * radius * height - 9 / 4 * Math.pow(height, 2);
+        let A =  height * (head + 1)
+        let rx = 2 * radius * A - A * A;
         // console.log('rx:', rx)
 
         if (rx > 0) {
-            return Math.floor(Math.sqrt(rx) + w0 + borders);
+            // return +(Math.sqrt(rx) + w0 + borders).toPrecision(3);
+            return +(Math.sqrt(rx)).toPrecision(3) * 2;
         }
 
         return 0
