@@ -6,13 +6,9 @@ import HeadBranch from './HeadBranch'
 import BodyBranch from './BodyBranch'
 
 class Tree extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            zIndex: 1
-        }
-    }
+    state = {
+        zIndex: 1
+    };
 
     render() {
         let { width, height } = this.props;

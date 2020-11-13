@@ -7,14 +7,10 @@ import config from './config'
 import './input.scss'
 
 export default class Input extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isOpen: true,
-            isReset: false
-       };
-    }
+    state = {
+        isOpen: true,
+        isReset: false
+    };
 
     handleHeadClick = () => {
         this.setState((state) => ({

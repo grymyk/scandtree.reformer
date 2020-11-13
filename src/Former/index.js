@@ -22,11 +22,7 @@ const default_data = {
 };
 
 class Former extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = default_data;
-    }
+    state = default_data;
 
     handleItemsClick = (btn) => {
         const delta = helper.getDelta(btn);
