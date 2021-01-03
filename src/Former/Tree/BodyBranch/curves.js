@@ -1,5 +1,19 @@
+const koef = 1.293;
+
 const curves = {
-    circle1: function(index) {
+    linear: (index, options) => {
+        const {delta, width} = options;
+
+        return (index * delta + width) * koef ^ 0;
+    },
+
+    polynom: (index, options) => {
+        const {degree, width, height, delta} = options;
+
+        return (width * (delta / 10) / height * Math.pow(index, degree) + width) * koef ^ 0;
+    },
+
+    circle1: (index) => {
         let width = 30;
         let borders = 2
         let height = 10;
@@ -22,7 +36,7 @@ const curves = {
         return Math.sqrt(rx) + y0;
     },
 
-    circle: function(index, options) {
+    circle: (index, options) => {
         // console.log(options)
 
         // let borders = 2
@@ -61,11 +75,10 @@ const curves = {
         return 0
     },
 
-    eggCurve: function(index, options) {
+    eggCurve: (index, options) => {
         console.log(index, options)
 
         const HALF_WIDTH = 2;
-        const koef = 1.293;
 
         let {width:fulcrum, branch, height, trunk} = options;
 
@@ -94,7 +107,7 @@ const curves = {
         return (HALF_WIDTH + koef) * width0 - fulcrum / 2
     },
 
-    ellipse: function(index, options) {
+    ellipse: (index, options) => {
         let {branch, height, size} = options;
 
         let major = branch * size * height / 2;
@@ -116,41 +129,6 @@ const curves = {
 
         return axis * Math.sqrt(powerMajor - powerX) + shiftY;
     },
-
-    getDelta: function(index, spread, height) {
-        const MAX_SPREAD = 179;
-
-        const degreeToRadian = (degree) => Math.PI / 180 * degree;
-
-        if (0 < spread && spread < MAX_SPREAD) {
-            const HALF_WIDTH = 2;
-            let alpha = spread / HALF_WIDTH;
-
-            alpha = degreeToRadian(alpha);
-
-            return alpha * index * height;
-        }
-
-        return 0;
-    },
-
-    linear: function(index, options) {
-        let {width, height, spread} = options;
-
-        let delta = this.getDelta(index, spread, height);
-
-        const koef = 1.293;
-
-        return (index * delta + width) * koef ^ 0;
-    },
-
-    parabola: function(index, options) {
-        let {width, height} = options;
-
-        const koef = 1.293;
-
-        return (width / height * Math.pow(index, 2) + width) * koef ^ 0;
-    }
 };
 
 export default curves;

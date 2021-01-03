@@ -5,8 +5,9 @@ import './link.scss'
 function Link() {
     return (
         <div className="stsite">
-            <a href="https://scandinaviantree.com/"
-               aria-label="Go to shop to buy Scandinavian Tree">scandinaviantree.com
+            <a href="http://scandinaviantree.com/"
+               aria-label="Go to shop to buy Scandinavian Tree">
+                scandinaviantree.com
             </a>
         </div>
     )

@@ -7,5 +7,9 @@
     color: #2E6128;
     font-weight: 700;
     font-size: 20px;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

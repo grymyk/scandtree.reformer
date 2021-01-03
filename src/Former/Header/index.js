@@ -7,8 +7,7 @@ function Header() {
         <div id="header">
             <div id="logo">
                 <a aria-label="Go to shop to buy Scandinavian Tree"
-                   href="https://scandinaviantree.com/">
-
+                   href="http://scandinaviantree.com/">
                 </a>
             </div>
             <h1 className="title">

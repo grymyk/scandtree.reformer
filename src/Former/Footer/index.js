@@ -3,12 +3,16 @@ import React from 'react'
 import './footer.scss';
 
 function Footer() {
+    const name = 'myko@grymyk.com';
+    const year = '2021';
+
     return (
         <div className="footer">
-            <a href="mailto:grymyk@gmail.com" aria-label="Send letter to developer">
-                grymyk@gmail.com
+            <a href={`mailto:${name}`}
+                aria-label="Send letter to developer">
+                {name}
             </a>
-            <span>©2020</span>
+            <span>{` ©${year}`}</span>
         </div>
     )
 }

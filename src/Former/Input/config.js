@@ -45,7 +45,8 @@ const data = [
         type: "number",
         readonly: false
     }
-}, {
+},
+/*{
     label: {
         htmlFor: "twig",
         value: "twig"
@@ -61,7 +62,8 @@ const data = [
         readonly: true,
         className: "readonly"
     }
-}, {
+},*/
+    {
     label: {
         htmlFor: "trunk",
         value: "t"

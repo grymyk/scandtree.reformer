@@ -19,7 +19,7 @@ const getListBoard = (props) => {
     let branchNum = twigNum + trunkNum;
     let len = branchNum * size;
 
-    // refactoring
+    // refactoring -\|-
     /*const twig = (index) => (index + twigNum) % branchNum === 0;
 
     const conditionGen = () => {
@@ -48,23 +48,51 @@ const getListBoard = (props) => {
         return (index + twigNum + 1) / branchNum ^ 0;
     };
 
+    const getDelta = (spread, height) => {
+        const MAX_SPREAD = 179;
+        const degreeToRadian = (degree) => Math.PI / 180 * degree;
+
+        if (0 < spread && spread < MAX_SPREAD) {
+            return degreeToRadian(spread) * height;
+        }
+
+        return 0;
+    }
 
     const getWidth = (index) => {
         // console.log('index', index)
+
+        const {spread, height} = props;
+
+        const delta = getDelta(spread, height);
+
+        const degree = 1.8;
+
+        const opts = {
+            delta,
+            width: trunkWidth,
+            height,
+            degree
+        };
+
         let width = trunkWidth;
 
         if ( isTwig(index) ) {
             // console.log('tw index', index)
             let indexTwig = getIndexTwig(index);
-            // return getWidthBranch(indexTwig, 'linear', props);
+
+            // console.log( getWidthBranch(indexTwig, 'polynom', opts) );
+            return getWidthBranch(indexTwig, 'polynom', opts);
+
+            // console.log( getWidthBranch(indexTwig, 'linear', opts) );
+            // return getWidthBranch(indexTwig, 'linear', opts);
+
             // console.log( getWidthBranch(indexTwig, 'eggCurve', props) );
             // return getWidthBranch(indexTwig, 'eggCurve', props);
 
-            console.log(getWidthBranch(indexTwig, 'circle', props))
-
-            return getWidthBranch(indexTwig, 'circle', props);
+            // console.log(getWidthBranch(indexTwig, 'circle', props))
+            // return getWidthBranch(indexTwig, 'circle', props);
         }
-
 
         return width
     };

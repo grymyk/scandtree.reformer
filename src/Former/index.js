@@ -11,7 +11,7 @@ import Footer from "./Footer";
 import helper from "./Input/helper";
 
 const default_data = {
-    height: 4,
+    height: 10,
     width: 20,
     long: 1000,
     twig: 1,
