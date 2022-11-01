@@ -1,12 +1,7 @@
 import React from 'react';
 
-import './css/main.scss';
-
-import Header from "./Header";
-import Input from "./Input";
-import Tree from "./Tree";
-import Link from "./Link";
-import Footer from "./Footer";
+import Input from "./Input/";
+import Tree from "./Tree/";
 
 import helper from "./Input/helper";
 
@@ -21,7 +16,7 @@ const default_data = {
     isReset: false
 };
 
-class Former extends React.Component {
+class App extends React.Component {
     state = default_data;
 
     handleItemsClick = (btn) => {
@@ -30,7 +25,9 @@ class Former extends React.Component {
         if (delta) {
             const name = helper.getName(btn);
 
-            this.setState((state) => ({[name]: +state[name] + delta}));
+            this.setState(
+                (state) => ({[name]: +state[name] + delta})
+            );
 
             this.setState({isReset: true});
         }
@@ -51,7 +48,6 @@ class Former extends React.Component {
     render() {
         return (
             <>
-                <Header />
                 <div className='scandtree'>
                     <Input
                         {...this.state}
@@ -61,11 +57,9 @@ class Former extends React.Component {
                     />
                     <Tree {...this.state} />
                 </div>
-                <Link />
-                <Footer />
             </>
         );
     }
 }
 
-export default Former;
+export default App;
