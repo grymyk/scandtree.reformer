@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Face from "./Face";
+import Face from "./Face.js";
 import boardHelper from "./boardHelper";
 
 const faces = ["front", "back", "right", "left", "top", "bottom"];

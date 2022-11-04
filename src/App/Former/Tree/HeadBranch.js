@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Trunk from '../Trunk'
+import Trunk from './Trunk'
 
 function HeadBranch(props) {
      return (

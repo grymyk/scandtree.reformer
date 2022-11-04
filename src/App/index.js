@@ -11,12 +11,12 @@ class App extends React.Component {
     render() {
         return (
             <>
-                <Header />
+                {/* <Header /> */}
 
                 <Former/>
 
-                <Link />
-                <Footer />
+                {/* <Link /> */}
+                {/* <Footer /> */}
             </>
         );
     }

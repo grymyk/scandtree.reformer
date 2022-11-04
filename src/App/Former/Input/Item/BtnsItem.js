@@ -1,10 +1,11 @@
 import React from "react";
 
-export default function BtnsItem(props) {
-    const handleClick = (event) => props.onClick(event.target);
+export default function BtnsItem({ onClick }) {
+    const handleClick = (event) => onClick(event.target);
 
     return (
-        <div onClick={handleClick} className="voter">
+        <div onClick = { handleClick }
+            className="voter">
             <span
                 data-sign="minus"
                 className="btn down">−

@@ -100,13 +100,13 @@ const getListBoard = (props) => {
     let list = [];
     let i = trunkNum - 1;
 
-    for ( i; i < len; i += 1) {
+    for ( i; i < len; i += 1 ) {
         let trunk = <Trunk
-            width = {getWidth(i)}
+            width = { getWidth(i) }
 
-            height = {height}
-            zIndex = {-i}
-            key = {-i}
+            height = { height }
+            zIndex = { -i }
+            key = { -i }
         />;
 
         list.push(trunk);
@@ -120,7 +120,7 @@ function BodyBranch(props) {
 
     return (
         <>
-            {listBoard}
+            { listBoard }
         </>
     )
 }

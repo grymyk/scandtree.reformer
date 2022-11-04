@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Input from "./Input/";
 import Tree from "./Tree/";
@@ -16,10 +16,30 @@ const default_data = {
     isReset: false
 };
 
-class App extends React.Component {
-    state = default_data;
+function Former() {
+    // state = default_data;
 
-    handleItemsClick = (btn) => {
+    const [width, setWidth] = useState(20);
+    const [height, setHeight] = useState(10);
+    const [long, setLong] = useState(1000);
+    const [twig, setTwig] = useState(1);
+    const [trunk, setTrunk] = useState(1);
+    const [branch, setBranch] = useState(12);
+    const [spread, setSpread] = useState(36);
+    const [isReset, setIsReset] = useState(false);
+
+    const state = {
+        width,
+        height,
+        long,
+        twig,
+        trunk,
+        branch,
+        spread,
+        isReset
+    }
+
+    const handleItemsClick = (btn) => {
         const delta = helper.getDelta(btn);
 
         if (delta) {
@@ -33,7 +53,7 @@ class App extends React.Component {
         }
     };
 
-    handleItemsChange = (input) => {
+    const handleItemsChange = (input) => {
         let value = +input.value;
 
         if (value) {
@@ -41,25 +61,26 @@ class App extends React.Component {
         }
     };
 
-    handleResetBtnClick = () => {
+    const handleResetBtnClick = () => {
         this.setState(default_data)
     };
 
-    render() {
-        return (
-            <>
-                <div className='scandtree'>
-                    <Input
-                        {...this.state}
-                        onBntClick = {this.handleItemsClick}
-                        onInputChange = {this.handleItemsChange}
-                        onResetBnt = {this.handleResetBtnClick}
-                    />
-                    <Tree {...this.state} />
-                </div>
-            </>
-        );
-    }
+    
+    return (
+        <>
+            <div className='scandtree'>
+                <Input
+                    state = { state }
+            
+                    onBntClick = { handleItemsClick }
+                    onInputChange = { handleItemsChange }
+                    onResetBnt = { handleResetBtnClick }
+                />
+                
+                <Tree state = { state } />
+            </div>
+        </>
+    );
 }
 
-export default App;
+export default Former;

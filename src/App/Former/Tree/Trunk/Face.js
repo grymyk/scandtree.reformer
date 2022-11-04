@@ -76,7 +76,7 @@ function Face(props) {
     let { face, options } = props;
 
     return (
-        <li className = {faceCls(face)}
+        <li className = { faceCls(face) }
              style = {planeStyles[face](options)} >
         </li>
     )
