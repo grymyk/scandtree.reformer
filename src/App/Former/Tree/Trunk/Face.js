@@ -1,83 +1,77 @@
 import React from "react";
 
 const planeStyles = {
-    front:  (options) => {
-        let { width, height,
-            translateZ: { zAxis }
-        } = options;
+    front:  ({ width, height, translateZ }) => {
+        let { zAxis } = translateZ;
 
-        return { width, height,
-            transform: "rotateY(0deg) translateZ(" + zAxis + ")"
+        return {
+            width,
+            height,
+            transform: `rotateY(0deg) translateZ( ${zAxis} )`
         }
     },
 
-    back: (options) => {
-        let { width, height,
-            translateZ: { zAxis }
-        } = options;
+    back: ({ width, height, translateZ }) => {
+        let { zAxis } = translateZ;
 
-        return { width, height,
-            transform: "rotateX(180deg) translateZ(" + zAxis + ")"
+        return {
+            width,
+            height,
+            transform: `rotateX(180deg) translateZ( ${zAxis} )`
         };
     },
 
-    right: (options) => {
-        let { height, left, deep,
-            translateZ: { xzAxis }
-        } = options;
+    right: ({ height, left, deep, translateZ }) => {
+        let { xzAxis } = translateZ;
 
-        return { width: deep,
+        return {
+            width: deep,
             height,
-            transform: "rotateY(90deg) translateZ(" + xzAxis + ")",
+            transform: `rotateY(90deg) translateZ( ${xzAxis} )`,
             left
         };
     },
 
-    left: (options) => {
-        let { height, left, deep,
-            translateZ: { xzAxis }
-        } = options;
+    left: ({ height, left, deep, translateZ }) => {
+        let { xzAxis } = translateZ;
 
-        return { width: deep,
+        return {
+            width: deep,
             height,
-            transform: "rotateY(-90deg) translateZ(" + xzAxis + ")",
+            transform: `rotateY(-90deg) translateZ( ${xzAxis} )`,
             left
         };
     },
 
-    top: (options) => {
-        let { width, top, deep,
-            translateZ: { yAxis }
-        } = options;
+    top: ({ width, top, deep, translateZ }) => {
+        let { yAxis } = translateZ;
 
-        return { width,
+        return {
+            width,
             height: deep,
-            transform: "rotateX(90deg) translateZ(" + yAxis + ")",
+            transform: `rotateX(90deg) translateZ( ${yAxis} )`,
             top
         };
     },
 
-    bottom: (options) => {
-        let { width, top, deep,
-            translateZ: { yAxis }
-        } = options;
+    bottom: ({ width, top, deep, translateZ }) => {
+        let { yAxis } = translateZ;
 
-        return { width,
+        return {
+            width,
             height: deep,
-            transform: "rotateX(-90deg) translateZ(" + yAxis + ")",
+            transform: `rotateX(-90deg) translateZ( ${yAxis} )`,
             top
         };
     },
 };
 
-const faceCls = (face) => face + " branch side_view";
+const faceCls = ( face ) => face + " branch side_view";
 
-function Face(props) {
-    let { face, options } = props;
-
+function Face({ face, options }) {
     return (
         <li className = { faceCls(face) }
-             style = {planeStyles[face](options)} >
+             style = { planeStyles[face](options) } >
         </li>
     )
 }

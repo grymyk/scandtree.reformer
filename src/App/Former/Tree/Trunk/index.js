@@ -14,16 +14,19 @@ function Board(props) {
     const faceList = faces.map( (face, index) => {
         let key = zIndex + index.toString();
 
-        return <Face key = {key}
-                     face = {face}
-                     options = {options}
+        return <Face key = { key }
+                     face = { face }
+                     options = { options }
         />
     });
 
     return (
-        <li className="board" key = {zIndex} style = {cssText}>
+        <li className="board"
+            key = { zIndex }
+            style = { cssText }
+        >    
             <div className="prism_holder">
-                <ul className="prism">{faceList}</ul>
+                <ul className="prism">{ faceList }</ul>
             </div>
         </li>
     )

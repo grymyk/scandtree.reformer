@@ -1,26 +1,40 @@
+const halfMeasure = (size) => {
+    const BASE = 10;
+    const TWO = 2
+
+    return `${parseInt(size / TWO, BASE)}px`
+}
+
 const boardHelper = {
-    getTranslateZ: function(options) {
+    getTranslateZ: function({ width, height, deep }) {
         return {
-            yAxis: parseInt(options.height / 2, 10) + 'px',
-            xzAxis: parseInt(options.width / 2, 10) + 'px',
-            zAxis: parseInt(options.deep / 2, 10) + 'px',
+            xzAxis: halfMeasure(width),
+            yAxis: halfMeasure(height),
+            zAxis: halfMeasure(deep),
         }
     },
 
-    getBoardTemplate: function(props) {
-        let { width, height } = props;
+    getBoardTemplate: function({ width, height }) {
+        const BASE = 10;
 
-        width = parseInt(width, 10);
-        height = parseInt( height, 10);
+        width = parseInt(width, BASE);
+        height = parseInt( height, BASE);
 
         const deep = 40;
 
+        let left = halfMeasure( width - deep ) 
+        let top = halfMeasure( height - deep )
+        
         let xyz = { width, height, deep };
+        let translateZ = this.getTranslateZ(xyz)
 
-        return  { width, height, deep,
-            left: parseInt( (width - deep) / 2, 10),
-            top: parseInt( (height - deep) / 2, 10),
-            translateZ: this.getTranslateZ(xyz),
+        return  {
+            width,
+            height,
+            deep,
+            left,
+            top,
+            translateZ 
         }
     }
 };

@@ -5,8 +5,8 @@ import './tree.scss';
 import HeadBranch from './HeadBranch.js'
 import BodyBranch from './BodyBranch'
 
-function Tree (props) {
-    const zIndex = 1
+function Tree ({ props }) {
+    const Z_INDEX = 1
 
     const { width, height } = props;
 
@@ -16,11 +16,11 @@ function Tree (props) {
                 {<HeadBranch
                     width = { width }
                     height = { height }
-                    zIndex = { zIndex }
+                    zIndex = { Z_INDEX }
                 />}
 
                 {<BodyBranch
-                    {...props}
+                    { ...props }
                 />}
             </ul>
         </div>

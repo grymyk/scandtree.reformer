@@ -39,24 +39,30 @@ function Former() {
         isReset
     }
 
-    const handleItemsClick = (btn) => {
+    const handleItemsClick = ( btn ) => {
         const delta = helper.getDelta(btn);
 
-        if (delta) {
-            const name = helper.getName(btn);
+        if ( delta ) {
+            const btnName = helper.getName(btn);
+            console.log(delta)
+
+            // this.setState(
+            //     (state) => ({[btnName]: +state[btnName] + delta})
+            // );
 
             this.setState(
-                (state) => ({[name]: +state[name] + delta})
+                (state) => ({[btnName]: Number( state[btnName] ) + delta})
             );
 
-            this.setState({isReset: true});
+            // this.setState({isReset: true});
+            setIsReset(true);
         }
     };
 
-    const handleItemsChange = (input) => {
-        let value = +input.value;
+    const handleItemsChange = ( input ) => {
+        let value = Number(input.value);
 
-        if (value) {
+        if ( value ) {
             this.setState({[input.name]: value})
         }
     };
@@ -65,19 +71,18 @@ function Former() {
         this.setState(default_data)
     };
 
-    
     return (
         <>
-            <div className='scandtree'>
+            <div className = "scandtree">
                 <Input
-                    state = { state }
+                    props = { state }
             
                     onBntClick = { handleItemsClick }
                     onInputChange = { handleItemsChange }
                     onResetBnt = { handleResetBtnClick }
                 />
                 
-                <Tree state = { state } />
+                <Tree props = { state } />
             </div>
         </>
     );
